@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/app.css" type="text/css" rel="stylesheet">
+
+    <title>Overphish Email Scanner</title>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="overphish.scanQr();">
+    
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>overphish</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            
+            <a class="btn btn-scan btn-success btn-scan" href="javascript:overphish.scanQr();">
+                Scan Email
+                <small>
+                    click here
+                </small>
+            </a>
+
+            <div id="div-loader" class="loading-box" style="display: none;">
+                <span class="glyphicon glyphicon-refresh spinning"></span><br> 
+                Loading    
+            </div>
+
+            <div class="alert alert-danger ap-alert-fullwidth" id="div-error-alert" style="display: none;">
+                <div class="container-fluid">
+                    <span id="div-error-message">
+                        Error
+                    </span>
+                </div>
+            </div>
+
+            <div id="div-receipt" class="receipt-data-container" style="display: none;">
+                <h3>Email</h3>
+                <div class="container">
+                    <strong>Subject: </strong><span id="span-receipt-email-subject"></span><br>
+                    <strong>From: </strong><span id="span-receipt-email-from"></span><br>
+                    <strong>To: </strong><span id="span-receipt-email-to"></span><br>
+                    <strong>Date: </strong><span id="span-receipt-email-date"></span>
+                </div>
+                <h3>Sender</h3>
+                <div class="container">
+                    <strong>Sender name: </strong><span id="span-receipt-sender-name"></span><br>
+                    <span id="span-receipt-sender-address"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
