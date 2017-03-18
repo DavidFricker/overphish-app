@@ -36,6 +36,7 @@ body {
 
 .receipt-data-container {
     padding: 10px;
+    text-align: left;
 }
 
 .receipt-data-container > strong {
