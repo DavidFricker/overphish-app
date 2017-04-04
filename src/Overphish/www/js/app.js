@@ -19,24 +19,9 @@ var overphish = {
                         return;
                     }
 
-                    /*try {
-                        data = JSON.parse(result.text);
-                    } catch (e) {
-                        overphish.showError('We were unable to read that barcode');
-                        return;
-                    }*/
-
-
-                    // add error checking
-                    parts = result.text.split('-');
-                    token = parts[0];
-                    key = parts[1];
-                    iv = parts[2];
-
-
                     overphish.hideReceipt();
                     overphish.showLoading(); 
-                    overphish.callServer(token, key, iv, overphish.renderPage);
+                    overphish.callServer(result.text, overphish.renderPage);
                 },
                 function (error) {
                     overphish.showError(error);
@@ -45,21 +30,18 @@ var overphish = {
            );
         },
 
-        callServer: function(token, key, iv, callback) {
+        callServer: function(blob, callback) {
             var func = callback;
             $.ajax({
                 method: "GET",
                 url: "https://api.overphish.com/app",
                 data: { 
-                    token: token,
-                    key: key,
-                    iv: iv
+                    blob: blob
                 }
             })
             .done(function(data) {
                 overphish.hideError();
-                callback(data);
-                
+                callback(data);  
             })
             .fail(function(data) {
                 overphish.hideLoading();
