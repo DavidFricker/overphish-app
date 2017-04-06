@@ -13,11 +13,11 @@ var overphish = {
                         overphish.showError('The bar code scanned is not a QR code');
                         return;
                     }
-
-                    if(!result.text) {
-                        overphish.showError('We were unable to scan that bar code');
-                        return;
-                    }
+console.log('dsdf,',result); 
+                   // if(!result.text) {
+                   //     overphish.showError(result+'We were unable to scan that bar code1');
+                  //      return;
+                   // }
 
                     overphish.hideReceipt();
                     overphish.showLoading(); 
