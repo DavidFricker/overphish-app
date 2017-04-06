@@ -5,16 +5,16 @@ var overphish = {
                 function (result) {
                     overphish.hideError();
 
-                    if(result.cancelled) {
+                    if (result.cancelled) {
                         return;
                     }
 
-                    if(result.format != "QR_CODE") { 
+                    if (result.format != "QR_CODE") { 
                         overphish.showError('The bar code scanned is not a QR code');
                         return;
                     }
 
-                    if(!result.text) {
+                    if (!result.text) {
                         overphish.showError('We were unable to scan that bar code');
                         return;
                     }
