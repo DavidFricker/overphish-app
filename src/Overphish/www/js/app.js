@@ -8,11 +8,12 @@ var overphish = {
                     if (result.cancelled) {
                         return;
                     }
-
+/*
                     if (result.format != "QR_CODE") { 
                         overphish.showError('The bar code scanned is not a QR code');
                         return;
                     }
+*/
                     if (!result.text) {
                         overphish.showError('We were unable to scan that bar code');
                         return;
@@ -31,6 +32,7 @@ var overphish = {
                     showTorchButton : true, // iOS, Android
                     prompt : "Place barcode inside the scan area", // Android
                     resultDisplayDuration: 0, // Android
+                    formats : "QR_CODE",
                     disableAnimations : true, // iOS
                     disableSuccessBeep: false // iOS
                 }
