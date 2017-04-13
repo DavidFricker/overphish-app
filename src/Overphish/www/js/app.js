@@ -13,7 +13,12 @@ var overphish = {
                         overphish.showError('The bar code scanned is not a QR code');
                         return;
                     }
-console.log(result);
+
+                    if(!result.text) {
+                       overphish.showError('We were unable to scan that bar code1');
+                       return;
+                    }
+
                     if (!result.text) {
                         overphish.showError('We were unable to scan that bar code');
                         return;
