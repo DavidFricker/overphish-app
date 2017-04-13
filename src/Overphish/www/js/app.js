@@ -25,6 +25,14 @@ var overphish = {
                 function (error) {
                     overphish.showError(error);
                     overphish.hideLoading();
+                },
+                {
+                    showFlipCameraButton : true, // iOS, Android
+                    showTorchButton : true, // iOS, Android
+                    prompt : "Place barcode inside the scan area", // Android
+                    resultDisplayDuration: 0, // Android
+                    disableAnimations : true, // iOS
+                    disableSuccessBeep: false // iOS
                 }
            );
         },
